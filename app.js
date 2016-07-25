@@ -32,7 +32,7 @@ var data = {
 };
   //ajax stuff
     $.ajax({
-      url: "https://mysterious-basin-61798.herokuapp.com/books",
+      url: "https://polar-cliffs-37664.herokuapp.com/books",
       method: "post",
       data: data,
       dataType: 'json'
@@ -87,7 +87,7 @@ function appending(response) {
         var id = this.id;
         console.log('favorite button clicked: ', id);
         $.ajax({
-          url: "http://localhost:3000/books/favorites",
+          url: "https://polar-cliffs-37664.herokuapp.com/books/favorites",
           method: "post",
           data: {"id": id},
           dataType: 'json'
