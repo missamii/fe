@@ -96,7 +96,7 @@ function appending(response) {
         console.log('favorite button clicked: ', id);
         // ajax post to favorites
         $.ajax({
-          url: url + '/books/favbooksCollection',
+          url: url + '/books/favorites',
           method: 'POST',
           data: {"id": id},
           dataType: 'json'
