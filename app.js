@@ -7,8 +7,8 @@ var div = document.querySelector('#content');
 var search = document.querySelector('#titlesearch');
 var button = document.querySelector('#searchBtn');
 
-var url = "http://localhost:3000";
-// var url = 'https://polar-cliffs-37664.herokuapp.com'
+// var url = "http://localhost:3000";
+var url = 'https://polar-cliffs-37664.herokuapp.com';
 
 //submit button gets it started
 searchBtn.addEventListener('click', function(ev) {
@@ -32,8 +32,8 @@ console.log(queryStr);
 var data = {
   searchValue: searchValue,
   chosenEndPoint: chosenEndPoint
-    // whatever: whatever the user types into the box, eg. title, author
 };
+
   //ajax stuff
     $.ajax({
       url: url,
@@ -43,6 +43,7 @@ var data = {
     }).done(function(res){
       console.log("response: ", res);
       appending(res);
+
     });
 // let's see this mess, append to the DOM
 function appending(response) {
