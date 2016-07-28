@@ -1,5 +1,6 @@
 window.onload = function() {
   console.log('js loaded');
+//Booket APP :)
 
 //get elements
 var div = document.querySelector('#content');
