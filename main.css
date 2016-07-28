@@ -111,31 +111,29 @@ h1 {
   font-size: 15px;
 }
 #content h3 {
-  margin:0 0 -.5em 0;
-  padding:.75em 0 0 0;
+  margin: 0 0 -.5em 0;
+  padding: .75em 0 0 0;
   font-size: 14px;
-  font-weight:lighter;
-  letter-spacing:.1em;
+  font-weight: lighter;
+  letter-spacing: .1em;
 }
 h4 {
-  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight : bold;
-  text-align:left;
+  text-align: left;
   line-height :1.6em;
   color: #000;
   margin: 0;
 }
 a {
-  color:#6699cc;
-  text-decoration:none;
+  color: #6699cc;
+  text-decoration: none;
 }
-
 a:hover {
 color: #BC8F8F;
 text-decoration:none;
 }
-
 img {
   float: right;
   margin: 0 0 20px 20px;

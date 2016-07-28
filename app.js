@@ -6,6 +6,9 @@ var div = document.querySelector('#content');
 var search = document.querySelector('#titlesearch');
 var button = document.querySelector('#searchBtn');
 
+var url = "http://localhost:3000";
+// var url = 'https://polar-cliffs-37664.herokuapp.com'
+
 //submit button gets it started
 searchBtn.addEventListener('click', function(ev) {
   ev.preventDefault();
@@ -32,7 +35,7 @@ var data = {
 };
   //ajax stuff
     $.ajax({
-      url: "https://polar-cliffs-37664.herokuapp.com/books",
+      url: url,
       method: "post",
       data: data,
       dataType: 'json'
@@ -70,32 +73,36 @@ function appending(response) {
       html += '</p>';
       html += '<p>' + price + '</p>';
       html += '<p>' + description + '</p>';
+      html += '<br>';
       html += "<button id='" + id +"'  type='button' name='button'>Add to Favorites</button>"  + '<br>';
       // thank you Babajide for helping me with this button part.
-      html += '<br>';
-      html += '<br>';
-      html += "<button id='" + id +"'  type='button' name='button'>Share</button>" + '<br>';
-      html += '<br>';
-      html += '<br>';
+
+      // for email sharing
+      var email=('you@youhost.com');
+      var subject = ('You are going to love this book!');
+      var body = ('Put the link to page here!');
+      html += '<a href="mailto:' + email + '?subject=' +subject+ '&body=' +body+'">' + 'Share!' + '<'+'/a>';
     }
   html += '</ul>';
   document.querySelector('#content').innerHTML = html;
-  // here I want to create a favorite button using JS. I need a favorite button for every ID to appear. So I probably need to use a loop method.
+
+  // favorite button posts to DB
   var buttons = document.querySelectorAll('button');
     for (var f = 0; f < buttons.length; f++) {
       buttons[f].addEventListener('click', function(){
         var id = this.id;
         console.log('favorite button clicked: ', id);
+        // ajax post to favorites
         $.ajax({
-          url: "https://polar-cliffs-37664.herokuapp.com/books/favorites",
-          method: "post",
+          url: url + '/books/favbooksCollection',
+          method: 'POST',
           data: {"id": id},
           dataType: 'json'
         }).done(function(res){
           console.log("favorites response: ", res);
-        });
-      });
-    }
-} // end function
-});
+          });
+        }); //end ajax
+      } //end eventlistener
+    } // end for loop
+  }); //end query selector
 };
